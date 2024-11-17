@@ -1,0 +1,22 @@
+19:00:17 **** Incremental Build of configuration Debug for project stm32f4xx_drivers ****
+make -j4 all 
+arm-none-eabi-gcc "../Src/stm32f407xx_gpio_driver.c" -mcpu=cortex-m4 -std=gnu11 -g3 -DDEBUG -DSTM32 -DSTM32F407G_DISC1 -DSTM32F4 -DSTM32F407VGTx -c -I../Inc -I"C:/Users/ganasri.s/STM32CubeIDE/workspace_1.16.0/stm32f4xx_drivers/drivers/Inc" -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -fcyclomatic-complexity -MMD -MP -MF"Src/stm32f407xx_gpio_driver.d" -MT"Src/stm32f407xx_gpio_driver.o" --specs=nano.specs -mfloat-abi=soft -mthumb -o "Src/stm32f407xx_gpio_driver.o"
+../Src/stm32f407xx_gpio_driver.c: In function 'GPIO_DeInit':
+../Src/stm32f407xx_gpio_driver.c:207:17: warning: implicit declaration of function 'GPIOF_REG_RESET'; did you mean 'GPIOG_REG_RESET'? [-Wimplicit-function-declaration]
+  207 |                 GPIOF_REG_RESET();
+      |                 ^~~~~~~~~~~~~~~
+      |                 GPIOG_REG_RESET
+arm-none-eabi-gcc -o "stm32f4xx_drivers.elf" @"objects.list"   -mcpu=cortex-m4 -T"C:\Users\ganasri.s\STM32CubeIDE\workspace_1.16.0\stm32f4xx_drivers\STM32F407VGTX_FLASH.ld" --specs=nosys.specs -Wl,-Map="stm32f4xx_drivers.map" -Wl,--gc-sections -static --specs=nano.specs -mfloat-abi=soft -mthumb -Wl,--start-group -lc -lm -Wl,--end-group
+Finished building target: stm32f4xx_drivers.elf
+ 
+arm-none-eabi-size  stm32f4xx_drivers.elf 
+arm-none-eabi-objdump -h -S stm32f4xx_drivers.elf  > "stm32f4xx_drivers.list"
+   text	   data	    bss	    dec	    hex	filename
+    660	      0	   1568	   2228	    8b4	stm32f4xx_drivers.elf
+Finished building: default.size.stdout
+ 
+Finished building: stm32f4xx_drivers.list
+ 
+
+19:00:22 Build Finished. 0 errors, 1 warnings. (took 4s.576ms)
+

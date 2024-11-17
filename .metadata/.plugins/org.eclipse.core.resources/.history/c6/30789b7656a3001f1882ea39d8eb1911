@@ -1,0 +1,37 @@
+/*
+ * stm32f407xx_gpio_driver.h
+ *
+ *  Created on: Nov 15, 2024
+ *      Author: ganasri.s
+ */
+
+#ifndef STM32F407XX_GPIO_DRIVER_H_
+#define STM32F407XX_GPIO_DRIVER_H_
+
+#include "stm32f407xx.h"
+
+typedef struct
+{
+	// uint8 - Used to store an 8 bit value & Pin number ranges from 0 to 15
+	uint8_t GPIO_PinNumber;         // GPIO Pin Number
+	uint8_t GPIO_PinMode;           // GPIO Pin Mode
+	uint8_t GPIO_PinSpeed;          // GPIO Speed
+	uint8_t GPIO_PinPuPdControl;    // GPIO Output Type
+	uint8_t GPIO_PinOPType;         // GPIO Pullup-Pulldown
+	uint8_t GPIO_PinAltFunMode;     // GPIO Alt.fun Mode
+}GPIO_PinConfig_t;
+
+/*
+ * This is the Handle structure for GPIO pin
+ */
+
+typedef struct
+{
+	// pointer to hold the base address of the GPIO peripherals
+	GPIO_RegDef_t *pGPIOx;               // This holds the base address of GPIO port to which the pin belongs
+	GPIO_PinConfig_t GPIO_PinConfig;     // This holds GPIO pin configuration structure
+
+
+}GPIO_Handle_t;
+
+#endif /* STM32F407XX_GPIO_DRIVER_H_ */

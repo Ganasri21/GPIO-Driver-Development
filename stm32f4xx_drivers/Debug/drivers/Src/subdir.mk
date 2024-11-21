@@ -5,29 +5,23 @@
 
 # Add inputs and outputs from these tool invocations to the build variables 
 C_SRCS += \
-../Src/005button_interrupt.c \
-../Src/syscalls.c \
-../Src/sysmem.c 
+../drivers/Src/stm32f407xx_gpio_driver.c 
 
 OBJS += \
-./Src/005button_interrupt.o \
-./Src/syscalls.o \
-./Src/sysmem.o 
+./drivers/Src/stm32f407xx_gpio_driver.o 
 
 C_DEPS += \
-./Src/005button_interrupt.d \
-./Src/syscalls.d \
-./Src/sysmem.d 
+./drivers/Src/stm32f407xx_gpio_driver.d 
 
 
 # Each subdirectory must supply rules for building sources it contributes
-Src/%.o Src/%.su Src/%.cyclo: ../Src/%.c Src/subdir.mk
+drivers/Src/%.o drivers/Src/%.su drivers/Src/%.cyclo: ../drivers/Src/%.c drivers/Src/subdir.mk
 	arm-none-eabi-gcc "$<" -mcpu=cortex-m4 -std=gnu11 -g3 -DDEBUG -DSTM32 -DSTM32F407G_DISC1 -DSTM32F4 -DSTM32F407VGTx -c -I../Inc -I"C:/Users/ganasri.s/STM32CubeIDE/workspace_1.16.0/stm32f4xx_drivers/drivers/Inc" -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -fcyclomatic-complexity -MMD -MP -MF"$(@:%.o=%.d)" -MT"$@" --specs=nano.specs -mfloat-abi=soft -mthumb -o "$@"
 
-clean: clean-Src
+clean: clean-drivers-2f-Src
 
-clean-Src:
-	-$(RM) ./Src/005button_interrupt.cyclo ./Src/005button_interrupt.d ./Src/005button_interrupt.o ./Src/005button_interrupt.su ./Src/syscalls.cyclo ./Src/syscalls.d ./Src/syscalls.o ./Src/syscalls.su ./Src/sysmem.cyclo ./Src/sysmem.d ./Src/sysmem.o ./Src/sysmem.su
+clean-drivers-2f-Src:
+	-$(RM) ./drivers/Src/stm32f407xx_gpio_driver.cyclo ./drivers/Src/stm32f407xx_gpio_driver.d ./drivers/Src/stm32f407xx_gpio_driver.o ./drivers/Src/stm32f407xx_gpio_driver.su
 
-.PHONY: clean-Src
+.PHONY: clean-drivers-2f-Src
 

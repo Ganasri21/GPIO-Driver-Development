@@ -6,15 +6,24 @@
 # Add inputs and outputs from these tool invocations to the build variables 
 C_SRCS += \
 ../drivers/Src/stm32f407xx_gpio_driver.c \
-../drivers/Src/stm32f407xx_spi_driver.c 
+../drivers/Src/stm32f407xx_i2c_driver.c \
+../drivers/Src/stm32f407xx_rcc_driver.c \
+../drivers/Src/stm32f407xx_spi_driver.c \
+../drivers/Src/stm32f407xx_uart_driver.c 
 
 OBJS += \
 ./drivers/Src/stm32f407xx_gpio_driver.o \
-./drivers/Src/stm32f407xx_spi_driver.o 
+./drivers/Src/stm32f407xx_i2c_driver.o \
+./drivers/Src/stm32f407xx_rcc_driver.o \
+./drivers/Src/stm32f407xx_spi_driver.o \
+./drivers/Src/stm32f407xx_uart_driver.o 
 
 C_DEPS += \
 ./drivers/Src/stm32f407xx_gpio_driver.d \
-./drivers/Src/stm32f407xx_spi_driver.d 
+./drivers/Src/stm32f407xx_i2c_driver.d \
+./drivers/Src/stm32f407xx_rcc_driver.d \
+./drivers/Src/stm32f407xx_spi_driver.d \
+./drivers/Src/stm32f407xx_uart_driver.d 
 
 
 # Each subdirectory must supply rules for building sources it contributes
@@ -24,7 +33,7 @@ drivers/Src/%.o drivers/Src/%.su drivers/Src/%.cyclo: ../drivers/Src/%.c drivers
 clean: clean-drivers-2f-Src
 
 clean-drivers-2f-Src:
-	-$(RM) ./drivers/Src/stm32f407xx_gpio_driver.cyclo ./drivers/Src/stm32f407xx_gpio_driver.d ./drivers/Src/stm32f407xx_gpio_driver.o ./drivers/Src/stm32f407xx_gpio_driver.su ./drivers/Src/stm32f407xx_spi_driver.cyclo ./drivers/Src/stm32f407xx_spi_driver.d ./drivers/Src/stm32f407xx_spi_driver.o ./drivers/Src/stm32f407xx_spi_driver.su
+	-$(RM) ./drivers/Src/stm32f407xx_gpio_driver.cyclo ./drivers/Src/stm32f407xx_gpio_driver.d ./drivers/Src/stm32f407xx_gpio_driver.o ./drivers/Src/stm32f407xx_gpio_driver.su ./drivers/Src/stm32f407xx_i2c_driver.cyclo ./drivers/Src/stm32f407xx_i2c_driver.d ./drivers/Src/stm32f407xx_i2c_driver.o ./drivers/Src/stm32f407xx_i2c_driver.su ./drivers/Src/stm32f407xx_rcc_driver.cyclo ./drivers/Src/stm32f407xx_rcc_driver.d ./drivers/Src/stm32f407xx_rcc_driver.o ./drivers/Src/stm32f407xx_rcc_driver.su ./drivers/Src/stm32f407xx_spi_driver.cyclo ./drivers/Src/stm32f407xx_spi_driver.d ./drivers/Src/stm32f407xx_spi_driver.o ./drivers/Src/stm32f407xx_spi_driver.su ./drivers/Src/stm32f407xx_uart_driver.cyclo ./drivers/Src/stm32f407xx_uart_driver.d ./drivers/Src/stm32f407xx_uart_driver.o ./drivers/Src/stm32f407xx_uart_driver.su
 
 .PHONY: clean-drivers-2f-Src
 
